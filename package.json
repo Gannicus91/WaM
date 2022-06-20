@@ -1,0 +1,22 @@
+{
+  "name": "friends_2022_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "NODE_ENV=production node bot",
+    "dev": "NODE_ENV=development nodemon bot",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "lodash-es": "^4.17.21",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "telegraf": "^4.8.5",
+    "telegraf-session-local": "^2.1.0"
+  }
+}
