@@ -62,7 +62,7 @@ const USER_DATA = [
 			"дживанян"
 		]
 	},
-].map(el => ({...el, nameComponents: new Set(el.nameComponents)}))
+];
 
 module.exports = {
 	USER_DATA

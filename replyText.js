@@ -6,6 +6,8 @@
  */
 let replyText = {
   "helloAdmin": "Привет админ, ждем сообщения от пользователей",
+  "hello": "Привет. Введите ваше фио",
+  "inputSecret": "Введите ваш секретный код",
 };
 
 module.exports = replyText;

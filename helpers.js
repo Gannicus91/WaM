@@ -1,3 +1,6 @@
+const memberData = require('./data.json');
+const guides = require('./guides.json');
+
 /**
  * Существует ли юзер с таким именем
  *
@@ -16,7 +19,7 @@ function userExists(name, data) {
 			return prev;
 		}, [])
 
-		return formatName.every((el) => nameComponents.has(el))
+		return formatName.every((el) => ~nameComponents.indexOf(el));
 	})
 
 	if (users.length === 1) {
@@ -29,19 +32,38 @@ function userExists(name, data) {
 }
 
 /**
- * Сравнение множестве (Set)
+ * Получить юзера по имени
  *
- * @param {Set} as
- * @param {Set} bs
- * @returns {boolean}
+ * @param {String} name
+ * @returns {Object}
  */
-function eqSet(as, bs) {
-	if (as.size !== bs.size) return false;
-	for (const a of as) if (!bs.has(a)) return false;
-	return true;
+function getUserByName(name) {
+	try {
+		return userExists(name, memberData);
+	} catch (error) {
+		throw error;
+	}
+}
+
+/**
+ * Получить юзера по id
+ *
+ * @param {Number} user_id
+ * @returns {Object}
+ */
+function getUserById(user_id) {
+	const user = memberData.find(({id}) => id === user_id)
+
+	if (!user) {
+		throw new Error('Участник не найден')
+	}
+
+	return user;
 }
 
 module.exports = {
-	eqSet,
+	GUIDES: guides,
 	userExists,
+	getUserByName,
+	getUserById
 }

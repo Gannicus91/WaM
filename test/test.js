@@ -8,7 +8,7 @@ describe('check user', () => {
 		assert.deepEqual(userExists('дживанян МАКСИМ', USER_DATA), {
 			id: 4,
 			name: 'Максим Арташесович Дживанян',
-			nameComponents: new Set (['максим', 'арташесович', 'дживанян'])
+			nameComponents: ['максим', 'арташесович', 'дживанян']
 		})
 	});
 
@@ -16,7 +16,7 @@ describe('check user', () => {
 		assert.deepEqual(userExists('язев', USER_DATA), {
 			id: 1,
 			name: 'Язев Илья Борисович',
-			nameComponents: new Set (['язев', 'илья', 'борисович'])
+			nameComponents: ['язев', 'илья', 'борисович']
 		})
 	});
 
