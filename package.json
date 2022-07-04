@@ -20,5 +20,10 @@
     "nodemon": "^2.0.15",
     "telegraf": "^4.8.5",
     "telegraf-session-local": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }

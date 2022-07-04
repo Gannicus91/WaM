@@ -1,14 +1,12 @@
-const config = require('./config')
-const replyText = require('./replyText')
+const config = require('./config');
+const replyText = require('./replyText');
 
 /**
  * Проверяем пользователя на права
  * @param userId {number}
  * @returns {boolean}
  */
-const isAdmin = (userId) => {
-  return String(userId) === String(config.admin);
-};
+const isAdmin = (userId) => String(userId) === String(config.admin);
 
 /**
  *  Перенаправляем админу от пользователя или уведомляем админа об ошибке
@@ -38,8 +36,5 @@ const toJSON = (data) => JSON.stringify(data, (k, v) => {
 module.exports = {
   isAdmin,
   forwardToAdmin,
-  toJSON
-}
-
-
-
+  toJSON,
+};

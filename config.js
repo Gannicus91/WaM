@@ -11,9 +11,9 @@
  * @type admin: number - id владельца бота
  */
 const config = {
-  "token": process.env.BOT_TOKEN,
-  "admin": process.env.ADMIN,
-  "onlyPhoto": process.env.ONLY_PHOTO === 'true'
+  token: process.env.BOT_TOKEN,
+  admin: process.env.ADMIN,
+  onlyPhoto: process.env.ONLY_PHOTO === 'true',
 };
 
 module.exports = config;

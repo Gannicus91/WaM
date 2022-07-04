@@ -5,27 +5,27 @@
  * @param {Object} data
  */
 function userExists(name, data) {
-	const users = data.filter(({nameComponents}) => {
-		const formatName = name.split(/\s+/gm).reduce((prev, el) => {
-			if (!el) {
-				return prev;
-			}
+  const users = data.filter(({ nameComponents }) => {
+    const formatName = name.split(/\s+/gm).reduce((prev, el) => {
+      if (!el) {
+        return prev;
+      }
 
-			prev.push(el.toLowerCase());
+      prev.push(el.toLowerCase());
 
-			return prev;
-		}, [])
+      return prev;
+    }, []);
 
-		return formatName.every((el) => ~nameComponents.indexOf(el));
-	})
+    return formatName.every((el) => ~nameComponents.indexOf(el));
+  });
 
-	if (users.length === 1) {
-		return users.pop();
-	} else if(users.length > 1) {
-		throw new Error('Найдено несколько участников. Уточните запрос');
-	} else {
-		throw new Error('Участник не найден');
-	}
+  if (users.length === 1) {
+    return users.pop();
+  } if (users.length > 1) {
+    throw new Error('Найдено несколько участников. Уточните запрос');
+  } else {
+    throw new Error('Участник не найден');
+  }
 }
 
 /**
@@ -34,15 +34,15 @@ function userExists(name, data) {
  * @param {Object} ctx
  * @return {Object}
  */
-function getFriendDataByName(name, ctx){
-	try {
-		return userExists(name, ctx.session.friends);
-	} catch (error) {
-		throw error;
-	}
+function getFriendDataByName(name, ctx) {
+  try {
+    return userExists(name, ctx.session.friends);
+  } catch (error) {
+    throw error;
+  }
 }
 
 module.exports = {
-	userExists,
-	getFriendDataByName,
-}
+  userExists,
+  getFriendDataByName,
+};
