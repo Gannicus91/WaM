@@ -1,6 +1,3 @@
-const memberData = require('./data.json');
-const guides = require('./guides.json');
-
 /**
  * Существует ли юзер с таким именем
  *
@@ -32,38 +29,20 @@ function userExists(name, data) {
 }
 
 /**
- * Получить юзера по имени
  *
  * @param {String} name
- * @returns {Object}
+ * @param {Object} ctx
+ * @return {Object}
  */
-function getUserByName(name) {
+function getFriendDataByName(name, ctx){
 	try {
-		return userExists(name, memberData);
+		return userExists(name, ctx.session.friends);
 	} catch (error) {
 		throw error;
 	}
 }
 
-/**
- * Получить юзера по id
- *
- * @param {Number} user_id
- * @returns {Object}
- */
-function getUserById(user_id) {
-	const user = memberData.find(({id}) => id === user_id)
-
-	if (!user) {
-		throw new Error('Участник не найден')
-	}
-
-	return user;
-}
-
 module.exports = {
-	GUIDES: guides,
 	userExists,
-	getUserByName,
-	getUserById
+	getFriendDataByName,
 }
