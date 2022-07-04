@@ -13,11 +13,11 @@ const isAdmin = (userId) => String(userId) === String(config.admin);
  * @param ctx
  */
 const forwardToAdmin = async (ctx) => {
-  if (isAdmin(ctx.message.from.id)) {
-    await ctx.reply(replyText.replyWrong);
-  } else {
-    await ctx.forwardMessage(config.admin, ctx.from.id, ctx.message.id);
-  }
+	if (isAdmin(ctx.message.from.id)) {
+		await ctx.reply(replyText.replyWrong);
+	} else {
+		await ctx.forwardMessage(config.admin, ctx.from.id, ctx.message.id);
+	}
 };
 
 /**
@@ -26,15 +26,15 @@ const forwardToAdmin = async (ctx) => {
  * @return {string}
  */
 const toJSON = (data) => JSON.stringify(data, (k, v) => {
-  if (v instanceof Set) {
-    return [...v];
-  }
+	if (v instanceof Set) {
+		return [...v];
+	}
 
-  return v;
+	return v;
 }, 2);
 
 module.exports = {
-  isAdmin,
-  forwardToAdmin,
-  toJSON,
+	isAdmin,
+	forwardToAdmin,
+	toJSON,
 };

@@ -7,11 +7,7 @@ const { userExists } = require('./helpers');
  * @returns {Object}
  */
 function getUserByName(name) {
-  try {
-    return userExists(name, memberData);
-  } catch (error) {
-    throw error;
-  }
+	return userExists(name, memberData);
 }
 
 /**
@@ -21,16 +17,16 @@ function getUserByName(name) {
  * @returns {Object}
  */
 function getUserById(user_id) {
-  const user = memberData.find(({ id }) => id === user_id);
+	const user = memberData.find(({ id }) => id === user_id);
 
-  if (!user) {
-    throw new Error('Участник не найден');
-  }
+	if (!user) {
+		throw new Error('Участник не найден');
+	}
 
-  return user;
+	return user;
 }
 
 module.exports = {
-  getUserById,
-  getUserByName,
+	getUserById,
+	getUserByName,
 };
