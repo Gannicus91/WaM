@@ -33,19 +33,17 @@ bot.command('friends', async (ctx) => {
 		friends = _.get(ctx, 'session.friends', []);
 	const current = _.get(ctx, 'session.current');
 
-	if (friends.length) {
-		let msgText = friends.map(({ name }) => name).join('\n');
-		if (current) {
-			msgText += '\nНекто';
-		}
-		const msg = await ctx.reply(msgText);
+	let msgText = friends.map(({name}) => name).join('\n');
 
-		ctx.session.meta = {
-			friendsMsgId: msg.message_id,
-		};
-	} else {
-		ctx.reply('Вы еще ни с кем не познакомились(');
+	if (current) {
+		msgText += config.onlyPhoto ? '\nНекто' : current.name;
 	}
+
+	const msg = await ctx.reply(msgText);
+
+	ctx.session.meta = {
+		friendsMsgId: msg.message_id,
+	};
 });
 
 bot.on('message', (ctx, next) => {
