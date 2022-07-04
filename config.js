@@ -12,7 +12,8 @@
  */
 const config = {
   "token": process.env.BOT_TOKEN,
-  "admin": process.env.ADMIN
+  "admin": process.env.ADMIN,
+  "onlyPhoto": process.env.ONLY_PHOTO === 'true'
 };
 
 module.exports = config;
