@@ -3,3 +3,5 @@
 .idea
 .env
 user_data.json
+member_guides.json
+member_data.json
