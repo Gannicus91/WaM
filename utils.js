@@ -22,9 +22,23 @@ const forwardToAdmin = async (ctx) => {
   }
 };
 
+/**
+ *
+ * @param {Object} data
+ * @return {string}
+ */
+const toJSON = (data) => JSON.stringify(data, (k, v) => {
+  if (v instanceof Set) {
+    return [...v];
+  }
+
+  return v;
+}, 2);
+
 module.exports = {
   isAdmin,
   forwardToAdmin,
+  toJSON
 }
 
 
