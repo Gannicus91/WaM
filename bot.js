@@ -36,7 +36,7 @@ bot.command('friends', async (ctx) => {
 	let msgText = friends.map(({name}) => name).join('\n');
 
 	if (current) {
-		msgText += config.onlyPhoto ? '\nНекто' : current.name;
+		msgText += config.onlyPhoto ? '\nНекто' : `\n${current.name}`;
 	}
 
 	const msg = await ctx.reply(msgText);
