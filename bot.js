@@ -68,7 +68,7 @@ bot.on('message', (ctx, next) => {
 	return next();
 });
 
-bot.on('message', (ctx, next) => {
+bot.on('message', async (ctx, next) => {
 	const
 		replyMessageId = _.get(ctx, 'message.reply_to_message.message_id', '');
 	const friendsMsgId = _.get(ctx, 'session.meta.friendsMsgId');
@@ -77,9 +77,10 @@ bot.on('message', (ctx, next) => {
 	if (replyMessageId === friendsMsgId) {
 		try {
 			const user = msgText !== 'некто' ? getFriendDataByName(msgText, ctx) : ctx.session.current;
-			ctx.reply(_.get(ctx, `session.friendsStorage.${user.id}`, []).join('\n___\n'));
+			const savedData = _.get(ctx, `session.friendsStorage.${user.id}`, []).join('\n___\n');
+			await ctx.reply(savedData ? savedData : 'Нет записей');
 		} catch (err) {
-			ctx.reply(err.message);
+			await ctx.reply(err.message);
 		}
 
 		return;
