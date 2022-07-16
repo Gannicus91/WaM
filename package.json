@@ -6,7 +6,6 @@
   "scripts": {
     "start": "NODE_ENV=production node bot",
     "dev": "NODE_ENV=development nodemon bot",
-    "setup": "node parseMemberData.js && node parseQuestions.js",
     "test": "mocha"
   },
   "keywords": [],
