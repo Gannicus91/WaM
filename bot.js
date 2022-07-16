@@ -111,7 +111,7 @@ bot.on('text', async (ctx, next) => {
 		return next();
 	}
 
-	if (ctx.message.text === ctx.session.tmp_user.secret_code) {
+	if (ctx.message.text.trim().toLowerCase() === ctx.session.tmp_user.secret_code.trim().toLowerCase()) {
 		ctx.session.user = ctx.session.tmp_user;
 		ctx.session.guide = GUIDES[ctx.session.user.id];
 		ctx.session.score = 0;
