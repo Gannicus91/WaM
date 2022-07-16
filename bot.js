@@ -22,6 +22,8 @@ bot.command('remove', (ctx) => {
 });
 
 bot.start((ctx) => {
+	console.log(ctx.from);
+	console.log(ctx.message);
 	if (ctx.session.user) {
 		return;
 	}
