@@ -29,6 +29,10 @@ bot.start((ctx) => {
 });
 
 bot.command('friends', async (ctx) => {
+	if (!ctx.session.user) {
+		return;
+	}
+
 	const
 		friends = _.get(ctx, 'session.friends', []),
 		current = _.get(ctx, 'session.current');
@@ -114,7 +118,7 @@ bot.on('text', async (ctx, next) => {
 		await ctx.reply(`Привет, добро пожаловать в бот, ${ctx.session.user.name}! 
 Сейчас тебе будут приходить фото участников нашего летника.
 Твоя задача проста:
-1) Найди его на турбазе
+1) Найди его на турбазе и познакомься с ним
 2) Узнай ответ на вопрос, предложенный ботом или выполни задание
 3) Узнай его секретный код и отправь боту, чтобы получить следующее фото`);
 		next();
