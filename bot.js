@@ -127,7 +127,7 @@ bot.on('text', async (ctx, next) => {
 		next();
 	} else {
 		await ctx.reply('Неверный код!');
-		await ctx.reply('Введите имя снова');
+		await ctx.reply('Введите ФИО снова');
 	}
 	ctx.session.tmp_user = null;
 });
