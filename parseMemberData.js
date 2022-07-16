@@ -4,7 +4,7 @@ const { toJSON } = require('./utils');
 function parseMembers() {
 	const data = String(fs.readFileSync('data.csv'));
 
-	const formattedData = data.split('\r\n').reduce((prev, el, idx) => {
+	const formattedData = data.split('\n').reduce((prev, el, idx) => {
 		if (!el || idx === 0) {
 			return prev;
 		}
