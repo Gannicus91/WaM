@@ -4,8 +4,7 @@ const fs = require('fs');
 const {toJSON} = require('./utils');
 
 function getOtherNames(data) {
-	return data.reduce((prev, {name: name1, isNewbee}) => {
-		const name = `${name1} ${isNewbee}`;
+	return data.reduce((prev, {name, isNewbee}) => {
 		if (isNewbee) {
 			prev.push(name, name, name, name, name, name);
 		} else {
