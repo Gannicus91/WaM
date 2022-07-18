@@ -174,7 +174,7 @@ bot.on('text', async (ctx, next) => {
 	} else {
 		await ctx.reply(message);
 	}
-	await ctx.reply(questions[~~(Math.random() * 20)]);
+	await ctx.reply(questions[~~(Math.random() * questions.length)]);
 });
 
 bot.on('text', async (ctx, next) => {
